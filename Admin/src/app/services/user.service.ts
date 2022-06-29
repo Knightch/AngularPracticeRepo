@@ -21,4 +21,8 @@ export class UserService {
     console.log('particular user id' + id + ' details is ' + userDataWithId);
     return userDataWithId;
   }
+
+  addUser(userObj: any) {
+    return this.http.post(this.baseUrl + 'users', userObj);
+  }
 }
