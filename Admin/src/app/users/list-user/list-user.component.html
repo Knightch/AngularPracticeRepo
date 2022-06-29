@@ -1,0 +1,7 @@
+<h1 *ngIf="listUser">Displaying {{listUser.length}} users</h1>
+  <mat-card role="listitem" *ngFor="let user of listUser">
+    <span class="userName">{{user.name}}</span>
+    <a class="viewUser" [routerLink]="['/user/view',user.id]">View</a>
+    <a class="editUser" [routerLink]="['/user/edit',user.id]">Edit</a>
+    <a class="deleteUser" [routerLink]="['/user/delete',user.id]">Delete</a>
+  </mat-card>

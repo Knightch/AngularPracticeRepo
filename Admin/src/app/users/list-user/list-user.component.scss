@@ -1,0 +1,52 @@
+mat-card{
+  width: 600px;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+.userName{
+  width: 200px;
+  height: 30px;
+  background: #000;
+  padding-top: 10px;
+  padding-left: 20px;
+  color: #fff;
+  border-radius: 10px;
+}
+.editUser{
+  width: 80px;
+  height: 30px;
+  margin-left: 5px;
+  background: rgb(50, 189, 22);
+  color: rgb(234, 232, 232);
+  padding-top: 12px;
+  border: 1px solid rgba(164, 160, 160, 0.603);
+  text-decoration: none;
+  border-radius: 10px;
+  text-align: center;
+}
+.deleteUser{
+  width: 80px;
+  height: 30px;
+  margin-left: 5px;
+  background: rgb(146, 3, 3);
+  color: #fff;
+  padding-top: 12px;
+  border: 1px solid rgba(164, 160, 160, 0.603);
+  text-decoration: none;
+  border-radius: 10px;
+  text-align: center;
+}
+.viewUser{
+  width: 80px;
+  height: 30px;
+  margin-left: 5px;
+  background: rgb(8, 109, 232);
+  color: #fff;
+  padding-top: 12px;
+  border: 1px solid rgba(164, 160, 160, 0.603);
+  text-decoration: none;
+  border-radius: 10px;
+  text-align: center;
+}
