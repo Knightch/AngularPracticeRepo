@@ -28,4 +28,8 @@ export class UserService {
   deleteUser(userId: any) {
     return this.http.delete(this.baseUrl + 'users/' + userId);
   }
+
+  updateUser(userId: any, userObj: any) {
+    return this.http.put(this.baseUrl + 'users/' + userId, userObj)
+  }
 }

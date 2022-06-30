@@ -30,7 +30,7 @@ export class AddUserComponent implements OnInit {
     this.userService.addUser(this.addUserForm.value).subscribe(data=>{
       this.router.navigate(['user/list'])
       this._snackBar.open("User created successfully"),(err: any)=>{
-        this._snackBar.open("Unable to create!")
+        this._snackBar.open("not unable to create!")
       }
     });
   }
