@@ -18,11 +18,14 @@ export class UserService {
 
   viewUser(id: string) {
     const userDataWithId = this.http.get(this.baseUrl + 'users/' + id);
-    console.log('particular user id' + id + ' details is ' + userDataWithId);
     return userDataWithId;
   }
 
   addUser(userObj: any) {
     return this.http.post(this.baseUrl + 'users', userObj);
+  }
+
+  deleteUser(userId: any) {
+    return this.http.delete(this.baseUrl + 'users/' + userId);
   }
 }
