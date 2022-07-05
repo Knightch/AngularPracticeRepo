@@ -10,9 +10,9 @@
 </div>
 <hr>
 <div class="card-section">
-  <p>you are
-    <span  [ngClass]="{online:statusOnSocialMedia==='online'}"></span>
-    <span [ngStyle]="{color:gettingTextColor()}">{{ statusOnSocialMedia }}
-    </span>
-  </p>
+  <input type="text" [(ngModel)]="userName">
+  <button class="btn btn-success" (click)="addingStatus()">Check Active Status</button>
+  <div *ngFor="let list of statusList">
+    <p>{{list.name}} <span [ngStyle]="{color:[list.color]}">{{list.status}}</span></p>
+  </div>
 </div>

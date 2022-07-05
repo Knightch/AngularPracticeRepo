@@ -9,9 +9,13 @@ export class DirectiveConceptComponent implements OnInit {
   inputText = "";
   userTypedText = false;
   statusOnSocialMedia: string = 'online';
-  constructor() {
-    this.statusOnSocialMedia = Math.random() > 0.4 ? 'online' : 'offline'
-  }
+  userName = '';
+  statusList = [{
+    name: '',
+    status: '',
+    color: ''
+  }]
+  constructor() { }
 
   gettingTextColor() {
     return this.statusOnSocialMedia === 'online' ? 'green' : 'red';
@@ -20,5 +24,10 @@ export class DirectiveConceptComponent implements OnInit {
   }
   addText() {
     this.userTypedText = true
+  }
+  addingStatus() {
+    this.statusOnSocialMedia = Math.random() > 0.4 ? 'online' : 'offline';
+    let textColor = this.statusOnSocialMedia === 'online' ? 'green' : 'red';
+    this.statusList.push({ name: this.userName,status:this.statusOnSocialMedia ,color:textColor})
   }
 }
