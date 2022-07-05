@@ -1,10 +1,7 @@
-<button class="btn btn-primary" (click)="onClickStatusChanage()">click here</button>
-<p>{{clickStatus}}</p>
-
-<hr>
-<p>using event binding</p>
-<input type="text" (input)="onTakingInput($event)">
-<p>using two way binding</p>
-<input type="text" [(ngModel)]="inputValue">
-<p>result :- {{inputValue}}</p>
-<!-- <p>{{inputAnotherValue}}</p> -->
+<!-- <p>using event binding</p>
+  <input type="text" class="form-control" (input)="onTakingInput($event)"> -->
+<div class="card-section">
+  <input type="text" class="form-control" [(ngModel)]="inputValue">
+  <button class="btn btn-primary" (click)="onClickStatusChanage()" [disabled]="!allowButton">click here</button>
+  <p>{{inputStatus}}</p>
+</div>
