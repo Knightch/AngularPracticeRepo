@@ -13,7 +13,7 @@ export class DirectiveConceptComponent implements OnInit {
     this.statusOnSocialMedia = Math.random() > 0.4 ? 'online' : 'offline'
   }
 
-  gettingBgColor() {
+  gettingTextColor() {
     return this.statusOnSocialMedia === 'online' ? 'green' : 'red';
   }
   ngOnInit(): void {

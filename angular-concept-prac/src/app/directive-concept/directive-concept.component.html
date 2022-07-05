@@ -10,5 +10,9 @@
 </div>
 <hr>
 <div class="card-section">
-  <p>you are <span [ngStyle]="{backgroundColor:gettingBgColor(), color:'white'}">{{ statusOnSocialMedia }}</span></p>
+  <p>you are
+    <span  [ngClass]="{online:statusOnSocialMedia==='online'}"></span>
+    <span [ngStyle]="{color:gettingTextColor()}">{{ statusOnSocialMedia }}
+    </span>
+  </p>
 </div>
