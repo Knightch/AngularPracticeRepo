@@ -2,6 +2,9 @@
 <p>{{clickStatus}}</p>
 
 <hr>
-<input type="text" (input)="onTakingInput($event)" (input)="onTakingAnotherWayOfInput($event)">
-<p>{{inputValue}}</p>
-<p>{{inputAnotherValue}}</p>
+<p>using event binding</p>
+<input type="text" (input)="onTakingInput($event)">
+<p>using two way binding</p>
+<input type="text" [(ngModel)]="inputValue">
+<p>result :- {{inputValue}}</p>
+<!-- <p>{{inputAnotherValue}}</p> -->
