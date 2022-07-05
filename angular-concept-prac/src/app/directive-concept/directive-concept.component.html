@@ -1,0 +1,6 @@
+<div class="card-section">
+  <input type="text" [(ngModel)]="inputText">
+  <p *ngIf="userTypedText">added text ! {{inputText}}</p>
+  <br>
+  <button class="btn btn-warning" (click)="addText()">Add Text</button>
+</div>
