@@ -1,2 +1,7 @@
 <button class="btn btn-primary" (click)="onClickStatusChanage()">click here</button>
 <p>{{clickStatus}}</p>
+
+<hr>
+<input type="text" (input)="onTakingInput($event)" (input)="onTakingAnotherWayOfInput($event)">
+<p>{{inputValue}}</p>
+<p>{{inputAnotherValue}}</p>
