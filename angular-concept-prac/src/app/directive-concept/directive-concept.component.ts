@@ -8,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class DirectiveConceptComponent implements OnInit {
   inputText = "";
   userTypedText = false;
-  constructor() { }
+  statusOnSocialMedia: string = 'online';
+  constructor() {
+    this.statusOnSocialMedia = Math.random() > 0.4 ? 'online' : 'offline'
+  }
 
+  gettingBgColor() {
+    return this.statusOnSocialMedia === 'online' ? 'green' : 'red';
+  }
   ngOnInit(): void {
   }
   addText() {
