@@ -7,8 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   allowButton = false;
+  emptyString = false;
   inputStatus = "Here is your Input Value";
   inputValue = '';
+  userName = '';
   // inputAnotherValue = '';
 
   constructor() {
@@ -29,4 +31,14 @@ export class AppComponent {
   // onTakingAnotherWayOfInput(event: any) {
   //   this.inputAnotherValue = event.target.value;
   // }
+
+  resetButtonActive() {
+    this.emptyString = true
+  }
+  resetString() {
+    this.userName = '';
+    console.log(this.userName);
+  }
 }
+
+
