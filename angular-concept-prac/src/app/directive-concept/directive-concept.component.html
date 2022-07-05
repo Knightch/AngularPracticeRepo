@@ -1,6 +1,9 @@
 <div class="card-section">
   <input type="text" [(ngModel)]="inputText">
-  <p *ngIf="userTypedText">added text ! {{inputText}}</p>
   <br>
   <button class="btn btn-warning" (click)="addText()">Add Text</button>
+  <p *ngIf="userTypedText; else noTypingString">added text ! {{inputText}}</p>
+  <ng-template #noTypingString>
+    <p>nothing is added by user</p>
+  </ng-template>
 </div>
