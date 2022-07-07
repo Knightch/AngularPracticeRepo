@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,6 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  serverDetails = [{type:'addingServer', name:'new sarver', content:'testing server !'}]
+  serverDetails = [{ type: '', name: '', content: '' }]
 
+  addServer(serverData: { name: string, content: string }) {
+    this.serverDetails.push({
+      type: 'addingServer',
+      name: serverData.name,
+      content: serverData.content
+    });
+  }
+  addBlueprint(blueprintData: { name: string, content: string }) {
+    this.serverDetails.push({
+      type: 'blueprintServer',
+      name: blueprintData.name,
+      content: blueprintData.content
+    });
+  }
 }
