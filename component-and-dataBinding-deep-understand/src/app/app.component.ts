@@ -23,4 +23,8 @@ export class AppComponent {
       content: blueprintData.content
     });
   }
+
+  onChangeNamne(){
+    this.serverDetails[0].name = 'chnaged';
+  }
 }
