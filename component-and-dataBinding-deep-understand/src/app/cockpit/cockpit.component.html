@@ -2,13 +2,14 @@
   <div class="col-xm-12 heading">
     <h3>Add new Servers or blueprint</h3>
     <label for="text">Server Name</label>
-    <input type="text" [(ngModel)]="serverName">
+    <!-- <input type="text" [(ngModel)]="serverName"> -->
+    <input type="text" #serverName>
     <label for="text">Server Content</label>
     <input type="text" [(ngModel)]="serverContent">
     <br>
     <div class="button-section">
-      <button class="btn btn-primary" (click)="onAddingServer()">Add Server</button>
-      <button class="btn btn-primary" (click)="onAddingBlueprint()">Add Server Blueprint</button>
+      <button class="btn btn-primary" (click)="onAddingServer(serverName)">Add Server</button>
+      <button class="btn btn-primary" (click)="onAddingBlueprint(serverName)">Add Server Blueprint</button>
     </div>
   </div>
 </div>
