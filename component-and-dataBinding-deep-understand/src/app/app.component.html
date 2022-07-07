@@ -3,6 +3,16 @@
 </div>
 <hr>
 <div class="container">
-  <app-server *ngFor="let server of serverDetails" [serverList]="server"></app-server>
+  <app-server *ngFor="let server of serverDetails" [serverList]="server">
+    <div class="card-header addingServer" *ngIf="server.type==='addingServer'">
+      <strong>{{server.name}}</strong>
+    </div>
+    <div class="card-header blueprint" *ngIf="server.type==='blueprintServer'">
+      <span>{{server.name}}</span>
+    </div>
+    <div class="card-body">
+      <p>{{server.content}}</p>
+    </div>
+  </app-server>
 </div>
 <router-outlet></router-outlet>
