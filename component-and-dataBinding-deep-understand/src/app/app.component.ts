@@ -24,7 +24,11 @@ export class AppComponent {
     });
   }
 
-  onChangeNamne(){
+  onChangeNamne() {
     this.serverDetails[0].name = 'chnaged';
+  }
+
+  onDestroyfirst() {
+    this.serverDetails.splice(0, 1);
   }
 }

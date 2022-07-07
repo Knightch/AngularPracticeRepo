@@ -3,7 +3,8 @@
 </div>
 <hr>
 <div class="container">
-  <button class="btn btn-danger" (click)="onChangeNamne()">Change first element</button>
+  <button class="btn btn-success" (click)="onChangeNamne()">Change first element</button>
+  <button class="btn btn-danger" (click)="onDestroyfirst()">Destroy first element</button>
   <app-server *ngFor="let server of serverDetails" [serverList]="server" [name]="server.name">
     <!-- <div class="card-header addingServer" *ngIf="server.type==='addingServer'">
       <strong>{{server.name}}</strong>
