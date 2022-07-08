@@ -6,12 +6,12 @@
   <button class="btn btn-success" (click)="onChangeNamne()">Change first element</button>
   <button class="btn btn-danger" (click)="onDestroyfirst()">Destroy first element</button>
   <app-server *ngFor="let server of serverDetails" [serverList]="server" [name]="server.name">
-    <!-- <div class="card-header addingServer" *ngIf="server.type==='addingServer'">
+    <div class="card-header addingServer" *ngIf="server.type==='addingServer'">
       <strong>{{server.name}}</strong>
-    </div> -->
-    <!-- <div class="card-header blueprint" *ngIf="server.type==='blueprintServer'">
+    </div>
+    <div class="card-header blueprint" *ngIf="server.type==='blueprintServer'">
       <span>{{server.name}}</span>
-    </div> -->
+    </div>
     <div class="card-body">
       <p>{{server.content}}</p>
     </div>
