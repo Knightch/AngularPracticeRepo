@@ -24,6 +24,14 @@ export class AppComponent {
   }
 
   get items(): readonly TodoItem[] {
+    // Filtering Completed To-Do Items
     return this.list.items.filter(item => !item.complete);
   }
+
+  // function for adding To-Do Items
+  addItem(newItem: string) {
+    if (newItem != "") {
+        this.list.addItem(newItem);
+    }
+}
 }
