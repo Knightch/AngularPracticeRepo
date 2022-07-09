@@ -9,6 +9,8 @@ import { TodoList } from './todoList';
 })
 export class AppComponent {
   title = 'todo';
+  // finishing up
+  showComplete: boolean = false;
   private list = new TodoList("Aman", [
     new TodoItem("Go for run", true),
     new TodoItem("get flowers"),
@@ -25,7 +27,8 @@ export class AppComponent {
 
   get items(): readonly TodoItem[] {
     // Filtering Completed To-Do Items
-    return this.list.items.filter(item => !item.complete);
+    // showing also complete task
+    return this.list.items.filter(item => this.showComplete || !item.complete);
   }
 
   // function for adding To-Do Items
