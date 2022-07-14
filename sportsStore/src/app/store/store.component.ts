@@ -34,10 +34,15 @@ export class StoreComponent implements OnInit {
   get categories(): string[] {
     return this.repository.getCategories();
   }
-  get pageNumbers(): number[] {
-    return Array(Math.ceil(this.repository
-      .getProducts(this.selectedCategory).length / this.productsPerPage))
-      .fill(0).map((x, i) => i + 1);
+  // get pageNumbers(): number[] {
+  //   return Array(Math.ceil(this.repository
+  //     .getProducts(this.selectedCategory).length / this.productsPerPage))
+  //     .fill(0).map((x, i) => i + 1);
+  // }
+
+  get pageCount(): number {
+    return Math.ceil(this.repository
+      .getProducts(this.selectedCategory).length / this.productsPerPage)
   }
 
   changeCategory(newCategory?: string) {
