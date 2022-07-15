@@ -42,6 +42,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   async getAllEmployee() {
     this.httpProvider.getAllEmployee().subscribe((data: any) => {
       if (data != null && data.body != null) {

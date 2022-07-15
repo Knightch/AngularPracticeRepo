@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { HttpProviderService } from '../Service/http-provider.service';
 
 @Component({
   selector: 'app-add-employee',
@@ -6,10 +10,44 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-employee.component.scss']
 })
 export class AddEmployeeComponent implements OnInit {
+  addEmployeeForm: employeeForm = new employeeForm();
 
-  constructor() { }
+  @ViewChild("employeeForm") employeeForm!: NgForm;
+  isSubmitted: boolean = false;
+  constructor(private router: Router, private httpProvider: HttpProviderService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
+  AddEmployee(isValid: any) {
+    this.isSubmitted = true;
+    if (isValid) {
+      this.httpProvider.saveEmployee(this.addEmployeeForm).subscribe(async data => {
+        if (data != null && data.body != null) {
+          if (data != null && data.body != null) {
+            var resultData = data.body;
+            if (resultData != null && resultData.isSuccess) {
+              this.toastr.success(resultData.message);
+              setTimeout(() => {
+                this.router.navigate(['/Home']);
+              }, 500);
+            }
+          }
+        }
+      },
+        async error => {
+          this.toastr.error(error.message);
+          setTimeout(() => {
+            this.router.navigate(['/Home']);
+          }, 500);
+        });
+    }
+  }
+}
 
+export class employeeForm {
+  FirstName: string = "";
+  LastName: string = "";
+  Email: string = "";
+  Address: string = "";
+  Phone: string = "";
 }
