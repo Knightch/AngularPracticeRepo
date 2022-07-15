@@ -1,0 +1,27 @@
+<form class="example-form" #Login="ngForm" (ngSubmit)="onsubmit()">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Login_name</mat-label>
+    <input type="text" matInput placeholder="User Name" name="Login_name" id="userName" #userName="ngModel"
+      [(ngModel)]="Obj.username">
+
+    <div *ngIf="Login.submitted && userName.errors" style="color: red">
+      <div *ngIf="userName.hasError('required')">
+        Login ID is required
+      </div>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Password</mat-label>
+    <input type="password" matInput placeholder="Password" name="user_password" id="password" #password="ngModel"
+      [(ngModel)]="Obj.password">
+
+    <div *ngIf="Login.submitted && password.errors" style="color: red">
+      <div *ngIf="password.hasError('required')">
+        Password is required
+      </div>
+    </div>
+  </mat-form-field>
+
+  <button mat-raised-button color="warn">submit</button>
+</form>

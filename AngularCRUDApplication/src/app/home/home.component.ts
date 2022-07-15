@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Type } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
@@ -22,6 +22,13 @@ import { HttpProviderService } from '../Service/http-provider.service';
   </div>
   `,
 })
+export class NgModalConfirm {
+  constructor(public modal: NgbActiveModal) { }
+}
+
+const MODALS: { [name: string]: Type<any> } = {
+  deleteModal: NgModalConfirm,
+};
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -54,4 +61,32 @@ export class HomeComponent implements OnInit {
         }
       });
   }
+
+  AddEmployee() {
+    this.router.navigate(['AddEmployee']);
+  }
+
+  deleteEmployeeConfirmation(employee: any) {
+    this.modalService.open(MODALS['deleteModal'],
+      {
+        ariaLabelledBy: 'modal-basic-title'
+      }).result.then((result) => {
+        this.deleteEmployee(employee);
+      },
+        (reason) => { });
+  }
+
+  deleteEmployee(employee: any) {
+    this.httpProvider.deleteEmployeeById(employee.id).subscribe((data: any) => {
+      if (data != null && data.body != null) {
+        var resultData = data.body;
+        if (resultData != null && resultData.isSuccess) {
+          this.toastr.success(resultData.message);
+          this.getAllEmployee();
+        }
+      }
+    },
+      (error: any) => { });
+  }
+
 }
