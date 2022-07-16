@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HttpProviderService } from '../Service/http-provider.service';
+import { WebApiService } from '../Service/web-api.service';
 
 @Component({
   selector: 'app-view-employee',
@@ -6,10 +9,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-employee.component.scss']
 })
 export class ViewEmployeeComponent implements OnInit {
+  employeeId: any;
+  employeeDetail: any = [];
 
-  constructor() { }
+  constructor(public webApiService: WebApiService, private route: ActivatedRoute, private httpProvider: HttpProviderService) { }
 
   ngOnInit(): void {
+    this.employeeId = this.route.snapshot.params['employeeId'];
+    this.getEmployeeDetailById();
   }
 
+  getEmployeeDetailById() {
+    this.httpProvider.getEmployeeDetailById(this.employeeId).subscribe((data: any) => {
+      if (data != null && data.body != null) {
+        var resultData = data.body;
+        if (resultData) {
+          this.employeeDetail = resultData;
+        }
+      }
+    },
+      (error: any) => { });
+  }
 }
