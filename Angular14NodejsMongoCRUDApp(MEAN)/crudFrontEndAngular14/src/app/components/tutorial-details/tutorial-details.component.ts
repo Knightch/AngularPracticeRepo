@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Tutorial } from 'src/app/models/tutorial.model';
 
 @Component({
   selector: 'app-tutorial-details',
@@ -7,6 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TutorialDetailsComponent implements OnInit {
 
+  @Input() viewMode = false;
+  @Input() currentTutorial: Tutorial = {
+    title: '',
+    description: '',
+    published: false
+  };
   constructor() { }
 
   ngOnInit(): void {
