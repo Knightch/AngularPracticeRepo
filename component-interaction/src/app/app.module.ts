@@ -6,6 +6,8 @@ import { HeroChildComponentComponent } from './hero-child-component/hero-child-c
 import { HeroParentComponentComponent } from './hero-parent-component/hero-parent-component.component';
 import { NameChildComponent } from './name-child/name-child.component';
 import { NameParentComponent } from './name-parent/name-parent.component';
+import { VersionChildComponent } from './version-child/version-child.component';
+import { VersionParentComponent } from './version-parent/version-parent.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { NameParentComponent } from './name-parent/name-parent.component';
     HeroChildComponentComponent,
     HeroParentComponentComponent,
     NameChildComponent,
-    NameParentComponent
+    NameParentComponent,
+    VersionChildComponent,
+    VersionParentComponent
   ],
   imports: [
     BrowserModule
